@@ -1,0 +1,10 @@
+<h1> edit category </h1>
+
+
+<form action='/edit/{{post.id}}?_method=PUT' method='post' >
+    <div class='form-group col-sm-10' >
+        <label for="title" >TITLE </label>
+        <input name="name" value="{{post.name}}" type="text" class="form-control" id="title" placeholder="enter title">
+    </div>
+<button type="submit" class="btn btn-success">submit </button>
+</form>

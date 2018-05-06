@@ -1,0 +1,35 @@
+<h1> all posts here </h1>
+
+
+<table class="table table-bordered">
+
+<tr>
+
+<th>id  </th>
+<th>title </th>
+<th>images </th>
+<th> status</th>
+<th>allow comments </th>
+<th>date </th>
+<th>body </th>
+</tr>
+{{#each posts}}
+<tr>
+
+<td>{{id}} </td>
+<td>{{title}} </td>
+<td><img src='/uploads/{{file}}' height="40"</img> </td>
+<td> {{status}}</td>
+<td>{{allowcomments}}</td>
+<td>   {{date}}              </td>
+<td>{{body}}</td>
+<td><a href="/admin/posts/edit/{{id}}" class='btn btn-info'> edit</a></td>
+<td>
+<form action="/admin/posts/{{id}}?_method=delete" method="post">
+<button type="submit" class="btn btn-danger" >delete</button>
+</form>
+
+</td>
+{{/each}}
+</tr>
+</table>

@@ -1,0 +1,32 @@
+
+
+<form action='/admin/category' method='post' >
+    <div class='form-group col-sm-10' >
+        <label for="title" >TITLE </label>
+        <input name="name" type="text" class="form-control" id="title" placeholder="enter title">
+    </div>
+<button type="submit" class="btn btn-success">submit </button>
+</form>
+
+<br>
+<br>
+<table class="table table-bordered">
+   <tr>
+     <th> id  </th>
+     <th>  name </th>
+   </tr>
+
+{{#each post}}
+ <tr>
+   <td> {{id}}  </td>
+   <td> {{name}} </td>
+<td><a href="/edit/{{id}}" class="btn btn-success">edit</a> </td>
+<td>
+<form action="/edit/{{id}}?_method=delete" method="post">
+  <button class="btn btn-danger"> delete </button>
+</form>
+</td>
+ </tr>
+{{/each}}
+
+</table>

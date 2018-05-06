@@ -1,0 +1,61 @@
+
+
+
+
+
+
+
+
+
+
+
+
+<form action="/userlogin" method="post">
+
+
+
+
+	<span class="login100-form-title p-b-37">
+
+		{{#if error}}
+		<div class='alert alert-success'> {{error}}</div>
+
+		{{/if}}
+
+		Sign In
+	</span>
+
+	<div class="wrap-input100 validate-input m-b-20" data-validate="Enter username or email">
+		<input class="input100" type="text" name="email" placeholder=" email">
+		<span class="focus-input100"></span>
+	</div>
+
+	<div class="wrap-input100 validate-input m-b-25" data-validate = "Enter password">
+		<input class="input100" type="password" name="password" placeholder="password">
+		<span class="focus-input100"></span>
+	</div>
+
+	<div class="container-login100-form-btn">
+		<button class="login100-form-btn">
+			Sign In
+		</button>
+	</div>
+
+
+
+  	<div class="container-login100-form-btn">
+  		<button class="login100-form-btn" style="margin-top:30px">
+        <a href="/usersignup" style="color:white">
+  			sign Up
+      </a>
+  		</button>
+  	</div>
+
+
+
+
+	</div>
+
+
+
+</form>
