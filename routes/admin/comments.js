@@ -14,7 +14,6 @@ router.all('/*', (req, res, next) => {
 
 
 
-
 router.post('/admin/comments',(req,res)=>{
 post.findOne({_id:req.body.id}).then((post)=>{
 
