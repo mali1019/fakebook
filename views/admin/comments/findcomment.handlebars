@@ -1,0 +1,31 @@
+<h1>       comments page       </h1>
+
+
+
+<table class="table table-bordered">
+   <tr>
+     <th> id  </th>
+
+     <th>  owner_id </th>
+     <th>  owner_name </th>
+     <th>  body </th>
+     <th>  date </th>
+   </tr>
+
+{{#each comm}}
+ <tr>
+   <td> {{id}}  </td>
+   <td> {{user_id}} </td>
+    <td> {{username}} </td>
+   <td> {{body}} </td>
+   <td> {{date}} </td>
+
+<td>
+<form action="/delete/{{id}}?_method=delete" method="post">
+  <button class="btn btn-danger"> delete </button>
+</form>
+</td>
+ </tr>
+{{/each}}
+
+</table>

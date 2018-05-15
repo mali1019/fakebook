@@ -22,7 +22,13 @@ type:String
 password:{
 type:String
 
-}
+},
+file:{
+type:String
+
+},
+
+
 
 
 })

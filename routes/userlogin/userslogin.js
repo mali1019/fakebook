@@ -86,13 +86,21 @@ router.get('/usersignup', (req, res) => {
 
 
 router.post('/usersignup', (req, res) => {
+  let file = req.files.file;
+  let filename = file.name;
+
+  file.mv('./public/uploads/' + filename, (err) => {
+    if (err) throw err;
+  });
 
     const newusersignup = new usersignup({
 
         firstname: req.body.firstname,
         lastname: req.body.lastname,
         email: req.body.email,
-        password: req.body.password
+        password: req.body.password,
+        file:filename
+
     })
     bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(newusersignup.password, salt, (err, hash) => {

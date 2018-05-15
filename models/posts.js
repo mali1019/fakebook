@@ -27,11 +27,11 @@ date:{
 
 },
 
-// comments:[{
-//   type:Schema.Types.ObjectId,
-//   ref:'comments'
-//
-// }]
+comments:[{
+  type:Schema.Types.ObjectId,
+  ref:'comments'
+
+}]
 
 
 

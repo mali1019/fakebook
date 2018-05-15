@@ -12,7 +12,7 @@ router.all('/*', (req, res, next) => {
 router.get('/admin/category', (req, res) => {
 
     cate.find({ "user_id": req.user.id }).then((post) => {
-        res.render('admin/category/index.handlebars', { post: post })
+        res.render('admin/category/index.handlebars', { post: post,user:req.user })
     })
 });
 

@@ -16,9 +16,7 @@
           <a class="nav-link" href="/about">About</a>
         </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="/admin">admin</a>
-        </li>
+
         <li class="nav-item">
           <a class="nav-link" href="">services</a>
         </li>
@@ -26,21 +24,15 @@
           <a class="nav-link" href="#">Contact</a>
         </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="/signup">signup</a>
-        </li>
 
-{{#if user}}{{user.firstname}}{{/if}}
-        <li class="nav-item">
-          <a class="nav-link" href="/login">login</a>
-        </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="/userlogout">logout</a>
-        </li>
+
 
 
       </ul>
     </div>
   </div>
+  <a href="/admin" style="float:right;color:red;font-size:20px">
+  {{#if user}}{{user.firstname}}{{/if}}
+  </a>
 </nav>
