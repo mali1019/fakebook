@@ -1,13 +1,12 @@
-
 const express = require('express');
 const router = express.Router();
 const post = require('../../models/posts');
 const cate = require('../../models/category');
 const regist = require('../../models/register');
 const usersignup = require('../../models/usersignup');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const passport = require('passport');
-const comments=require('../../models/comments');
+const comments = require('../../models/comments');
 const Localstrategy = require('passport-local').Strategy;
 
 //const {} = require('../../helpers/userauthentication');
@@ -19,7 +18,7 @@ router.all('/*', (req, res, next) => {
     next();
 
 });
-router.get('/home',adminAuthenticated, (req, res) => {
+router.get('/home', adminAuthenticated, (req, res) => {
     post.find({}).then((post) => {
         cate.find({}).then((cate) => {
 
@@ -43,20 +42,20 @@ router.get('/about', (req, res) => {
 
 router.get('/home/postss/:id', (req, res) => {
     post.findOne({ _id: req.params.id }).populate('comments').then((post) => {
-    //  comments.findOne({_id:req.params.id}).then((commm)=>{
+        //  comments.findOne({_id:req.params.id}).then((commm)=>{
         cate.find({}).then((cate) => {
-            res.render('home/readmore.handlebars', { post: post, cate: cate,user:req.user});
+            res.render('home/readmore.handlebars', { post: post, cate: cate, user: req.user });
         })
 
 
-      //})
+        //})
 
 
 
     })
 
-//
- });
+    //
+});
 
 
 module.exports = router;

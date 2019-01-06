@@ -3,7 +3,7 @@ const router = express.Router();
 const usersignup = require('../../models/usersignup');
 const passport = require('passport');
 const Localstrategy = require('passport-local').Strategy;
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 router.all('/*', (req, res, next) => {
 
     req.app.locals.layout = 'userlogin';
@@ -28,18 +28,17 @@ passport.use(new Localstrategy({ usernameField: 'email' }, (email, password, don
             if (err) return err;
             if (res) {
                 return done(null, response);
-            }
-            else {
+            } else {
                 return done(null, false, { message: "incorrect password" })
             }
         })
     })
 }))
-passport.serializeUser(function (user, done) {
+passport.serializeUser(function(user, done) {
     done(null, user.id);
 });
-passport.deserializeUser(function (id, done) {
-    usersignup.findById(id, function (err, user) {
+passport.deserializeUser(function(id, done) {
+    usersignup.findById(id, function(err, user) {
         done(err, user);
     });
 });
@@ -86,12 +85,12 @@ router.get('/usersignup', (req, res) => {
 
 
 router.post('/usersignup', (req, res) => {
-  let file = req.files.file;
-  let filename = file.name;
+    let file = req.files.file;
+    let filename = file.name;
 
-  file.mv('./public/uploads/' + filename, (err) => {
-    if (err) throw err;
-  });
+    file.mv('./public/uploads/' + filename, (err) => {
+        if (err) throw err;
+    });
 
     const newusersignup = new usersignup({
 
@@ -99,7 +98,7 @@ router.post('/usersignup', (req, res) => {
         lastname: req.body.lastname,
         email: req.body.email,
         password: req.body.password,
-        file:filename
+        file: filename
 
     })
     bcrypt.genSalt(10, (err, salt) => {
